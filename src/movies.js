@@ -30,8 +30,13 @@ function scoresAverage(moviesArray) {
     }, 0);
     let totalMovies = moviesArray.length;
     console.log(average / totalMovies)
-    return Math.round((average / totalMovies) * 100) / 100;
+    return Math.round((average / totalMovies) * 100) / 100; //EXPLICACION ABAJO
+    // 17,5464 * 100
+    // 1754,64 round
+    // 1755 /100
+    // 17,55 
 }
+
 
 
 // Iteration 4: Drama movies - Get the average of Drama Movies
@@ -62,13 +67,17 @@ function orderByYear(moviesArray) {
 function orderAlphabetically(moviesArray) {
     let abcMovies = Array.from(moviesArray)
     abcMovies.sort((a, b) => a.title.localeCompare(b.title))
-    for (let i = 0; i < abcMovies.length; i++) {
-        if (abcMovies.length < 20) {
-            return abcMovies
-        }
-    }
-    return abcMovies.slice(0, 20)
+    let resultsArr = []
+    abcMovies.forEach((movie, i) => {
+        if (i < 20) resultsArr.push(movie.title)
+    });
+    return resultsArr
+
+    //OTRA OPCION:
+    let abcMoviesCopy20 = abcMovies.slice(0, 20);
+    return abcMoviesCopy20.map((movie) => movie.title)
 }
+
 
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
 function turnHoursToMinutes(moviesArray) { }

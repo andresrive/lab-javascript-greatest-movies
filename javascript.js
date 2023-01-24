@@ -91,7 +91,7 @@ setTimeout(() => {
 }, 5000)
 
 
-
+//ARGUMENTS
 
 function setEdad(numero) {
     console.log(numero);
